@@ -9,28 +9,28 @@
 				<h1 class="text-5xl py-80">Hello, world!</h1>
 			</div>
 		</div>
-
-		<carousel-3d
-			:controls-visible="true"
-			:controls-prev-html="'&#10092;'"
-			:controls-next-html="'&#10093;'"
-			:controls-width="30"
-			:controls-height="60"
-			:autoplay="true"
-			:autoplay-timeout="5000"
-			:display="3"
-			:width="600"
-			:height="400"
-		>
-			<slide v-for="(slide, i) in slides" :index="i" :key="i">
-				<g-image
-					alt="Example image"
-					:src="'IMG_' + parseInt(i + 1) + '.jpg'"
-					width="100%"
-				/>
-			</slide>
-		</carousel-3d>
-
+		<ClientOnly>
+			<carousel-3d
+				:controls-visible="true"
+				:controls-prev-html="'&#10092;'"
+				:controls-next-html="'&#10093;'"
+				:controls-width="30"
+				:controls-height="60"
+				:autoplay="true"
+				:autoplay-timeout="5000"
+				:display="3"
+				:width="600"
+				:height="400"
+			>
+				<slide v-for="(slide, i) in slides" :index="i" :key="i">
+					<g-image
+						alt="Example image"
+						:src="'IMG_' + parseInt(i + 1) + '.jpg'"
+						width="100%"
+					/>
+				</slide>
+			</carousel-3d>
+		</ClientOnly>
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
 			excepturi labore tempore expedita, et iste tenetur suscipit
@@ -57,12 +57,18 @@ import { Carousel3d, Slide } from "vue-carousel-3d";
 export default {
 	data() {
 		return {
-			slides: 21,
+			slides: 20,
 		};
 	},
 	components: {
-		Carousel3d,
-		Slide,
+		Carousel3d: () =>
+			import("vue-carousel-3d")
+				.then((m) => m.Carousel3d)
+				.catch(),
+		Slide: () =>
+			import("vue-carousel-3d")
+				.then((m) => m.Slide)
+				.catch(),
 	},
 	computed: {
 		setImage: function() {
