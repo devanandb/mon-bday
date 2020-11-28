@@ -10,7 +10,7 @@
 			</div>
 		</div>
 
-		<carousel-3d
+		<!-- <carousel-3d
 			:controls-visible="true"
 			:controls-prev-html="'&#10092;'"
 			:controls-next-html="'&#10093;'"
@@ -29,7 +29,7 @@
 					width="100%"
 				/>
 			</slide>
-		</carousel-3d>
+		</carousel-3d> -->
 
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
