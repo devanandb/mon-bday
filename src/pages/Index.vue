@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { Carousel3d, Slide } from "vue-carousel-3d";
+// import { Carousel3d, Slide } from "vue-carousel-3d";
 
 export default {
 	data() {
@@ -60,10 +60,16 @@ export default {
 			slides: 20,
 		};
 	},
-	components: {
-		Carousel3d,
-		Slide,
-	},
+	// components: {
+	// 	Carousel: () =>
+	// 		import("vue-carousel-3d")
+	// 			.then((m) => m.Carousel3d)
+	// 			.catch(),
+	// 	Slide: () =>
+	// 		import("vue-carousel-3d")
+	// 			.then((m) => m.Slide)
+	// 			.catch(),
+	// },
 	computed: {
 		setImage: function() {
 			return this.image ? "/bg.jpg" : "/bg.jpg" + this.image + "sadf";
